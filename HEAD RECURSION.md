@@ -19,7 +19,19 @@ To write a Python program to demonstrate **Head Recursion** by finding and print
 
 ADD CODE HERE
 ```
-def fun(n): if n>0: fun(n-1) print(fun(n),end=" " def sum(num) total=0 for digit in str(num): total+=int(digit) return total num=int(input()) if num%2!=0: num+=1 fun(num)
+def sum_digits(n):
+    return sum(int(d) for d in str(n))
+
+def fun(n):
+    if n <= 0:
+        return
+    fun(n - 2)  # Head recursion
+    print(f"{n} → {sum_digits(n)}")
+
+num = int(input("Enter a number: "))
+if num % 2 != 0:
+    num += 1
+fun(num)
 ````
 ## OUTPUT
 ![image](https://github.com/user-attachments/assets/f1a43b55-09ca-47bd-ba6b-552d732054d7)
